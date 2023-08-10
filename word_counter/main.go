@@ -9,11 +9,21 @@ import (
 	Count how many times a word appears in the text.
 */
 
-func main() {
-	// Use the Fields method in the String package  to split string in words
-	// ToLower
-
-	str := "this is a string"
+func wordCounts(str string) map[string]int {
 	words := strings.Fields(str)
-	fmt.Println()
+
+	counts := make(map[string]int)
+	for _, word := range words {
+		counts[word] += 1
+	}
+
+	return counts
+}
+
+func main() {
+	str := "this is a string is it not"
+
+	counts := wordCounts(str)
+
+	fmt.Println(counts)
 }
